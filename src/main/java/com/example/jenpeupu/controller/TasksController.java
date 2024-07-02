@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -52,10 +52,16 @@ public class TasksController {
      * @return Saved Employee entity
      */
     @PostMapping("/clients")
-    public ResponseEntity<Task> createTask(@RequestParam(value="name", required = false) String name, @RequestParam(value="discipline", required = false) String discipline) {
-        // @RequestParam(value="name", required = false) String name, @RequestParam(value="discipline", required = false) String discipline
-        return ResponseEntity.ok().body(taskService.saveTask(name, discipline));
+    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+        return ResponseEntity.ok().body(taskService.saveTask(task));
     }
+    /*
+    @RequestBody Task task
+    ResponseEntity.ok().body(taskService.saveTask(task));
+
+    ResponseEntity.ok().body(taskService.saveTask(name, discipline));
+    @RequestParam(value="name", required = false) String name, @RequestParam(value="discipline", required = false) String discipline
+     */
 
     /**
      * This method is called when a PUT request is made

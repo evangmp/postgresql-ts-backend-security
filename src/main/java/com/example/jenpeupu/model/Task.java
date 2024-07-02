@@ -14,12 +14,12 @@ public class Task {
     private String name;
     private Boolean active;
     private String discipline;
-    private Integer date;
+    private String date;
 
 
     public Task() {
     }
-    public Task(String name, String discipline, Boolean active, Integer date) {
+    public Task(String name, String discipline, Boolean active, String date) {
         this.name = name;
         this.active = active;
         this.date = date;
@@ -49,10 +49,10 @@ public class Task {
         this.active = active;
     }
 
-    public Integer getDate() {
+    public String getDate() {
         return date;
     }
-    public void setDate(Integer date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

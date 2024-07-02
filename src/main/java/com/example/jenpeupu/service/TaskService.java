@@ -30,20 +30,35 @@ public class TaskService {
         return null;
     }
 
-    public Task saveTask(String name, String discipline) {
-        Task task = new Task(name, discipline, false, 123);
+    public Task saveTask(Task dataTask) {
+        Task task = new Task(dataTask.getName(), dataTask.getDiscipline(), false, dataTask.getDate());
 
         Task savedTask = taskRepository.save(task);
-        log.info("Task with id " + savedTask.getId() + " saved");
+        log.info("");
+        log.info("Task with id " + savedTask.getId() + " saved, " + dataTask.getName() + " et " + dataTask.getDiscipline() + " ");
+        log.info("");
         return savedTask;
     }
+    /*
+    String name, String discipline
+    Task task = new Task(name, discipline, false, 123);
+    Task savedTask = taskRepository.save(task);
+    log.info("Task with id " + savedTask.getId() + " saved, " + name + " et " + discipline + " ");
+
+
+    Task task
+    Task newtTask = new Task(task.getName(), task.getDiscipline(), false, 123);
+    Task savedTask = taskRepository.save(newTask);
+    log.info("Task with id " + savedTask.getId() + " saved, " + savedTask.getName() + " et " + savedTask.getDiscipline() + " ");
+     */
+
 
     public void deleteTaskById(Integer id) {
         taskRepository.deleteById(id);
     }
 
     public Task updateTask(Task task) {
-        Optional<Task> existingTask = taskRepository.findById(task.getId());
+        Optional<Task> existingTask = taskRepository.findById(task.getId()); // à méditer
         task.setName(task.getName());
         task.setDiscipline(task.getDiscipline());
         task.setActive(task.getActive());
