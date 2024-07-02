@@ -39,19 +39,6 @@ public class TaskService {
         log.info("");
         return savedTask;
     }
-    /*
-    String name, String discipline
-    Task task = new Task(name, discipline, false, 123);
-    Task savedTask = taskRepository.save(task);
-    log.info("Task with id " + savedTask.getId() + " saved, " + name + " et " + discipline + " ");
-
-
-    Task task
-    Task newtTask = new Task(task.getName(), task.getDiscipline(), false, 123);
-    Task savedTask = taskRepository.save(newTask);
-    log.info("Task with id " + savedTask.getId() + " saved, " + savedTask.getName() + " et " + savedTask.getDiscipline() + " ");
-     */
-
 
     public void deleteTaskById(Integer id) {
         taskRepository.deleteById(id);

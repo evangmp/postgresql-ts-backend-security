@@ -55,13 +55,6 @@ public class TasksController {
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
         return ResponseEntity.ok().body(taskService.saveTask(task));
     }
-    /*
-    @RequestBody Task task
-    ResponseEntity.ok().body(taskService.saveTask(task));
-
-    ResponseEntity.ok().body(taskService.saveTask(name, discipline));
-    @RequestParam(value="name", required = false) String name, @RequestParam(value="discipline", required = false) String discipline
-     */
 
     /**
      * This method is called when a PUT request is made
